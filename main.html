@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Monthly Savings</title>
-  
 </head>
 <body>
   <table id="newtable">
@@ -15,44 +14,44 @@
     </tr>
     <tr>
       <td class="item">Tea</td>
-      <td class="price">50</td>
+      <td class="price" contenteditable="true">50</td>
     </tr>
     <tr>
       <td class="item">Coffee</td>
-      <td class="price">70</td>
+      <td class="price" contenteditable="true">70</td>
     </tr>
     <tr>
       <td class="item">Biscuits</td>
-      <td class="price">100</td>
+      <td class="price" contenteditable="true">100</td>
     </tr>
     <tr>
       <td class="item">Rice</td>
-      <td class="price">130</td>
+      <td class="price" contenteditable="true">130</td>
     </tr>
     <tr>
       <td class="item">Milk</td>
-      <td class="price">50</td>
+      <td class="price" contenteditable="true">50</td>
     </tr>
   </table>
 
-  <!-- Link JavaScript -->
-  <script >
-    let total=document.querySelectorAll(".price")
-    sum=0
-    for(i of total){
-        sum+=Number(i.textContent)
-    }
-    let adding=document.getElementById("newtable")
-    let newadding=document.createElement("tr")
+  <!-- Button to calculate -->
+  <button id="calc">Recalculate</button>
 
-    let newadding1=document.createElement("td")
-    newadding1.textContent="total"
-    let newadding2=document.createElement("td")
+  <!-- Show total here -->
+  <p id="ans"></p>
 
-    newadding2.textContent=sum
-    newadding.appendChild(newadding1)
-    newadding.appendChild(newadding2)
-    adding.appendChild(newadding)
+  <script>
+    document.getElementById("calc").addEventListener("click", () => {
+      let prices = document.querySelectorAll(".price");
+      let sum = 0;
+
+      prices.forEach(p => {
+        sum += Number(p.textContent);
+      });
+
+      // Show result in #ans
+      document.getElementById("ans").textContent = sum;
+    });
   </script>
 </body>
 </html>
