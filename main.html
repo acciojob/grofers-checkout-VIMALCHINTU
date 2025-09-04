@@ -3,66 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grofers Checkout</title>
-  <style>
-    table, th, td {
-      border: 1px solid black;
-      border-collapse: collapse;
-      padding: 8px;
-    }
-  </style>
+  <title>Monthly Savings</title>
+  
 </head>
 <body>
-  <table id="groceryTable">
-    <caption>Grocery List</caption>
+  <table id="newtable">
+    <caption>Monthly savings</caption>
     <tr>
       <th>Item</th>
-      <th>Price (₹)</th>
+      <th>Prices in Rs</th>
     </tr>
     <tr>
       <td class="item">Tea</td>
-      <td class="prices">50</td>
+      <td class="price">50</td>
     </tr>
     <tr>
       <td class="item">Coffee</td>
-      <td class="prices">70</td>
+      <td class="price">70</td>
     </tr>
     <tr>
       <td class="item">Biscuits</td>
-      <td class="prices">100</td>
+      <td class="price">100</td>
     </tr>
     <tr>
       <td class="item">Rice</td>
-      <td class="prices">130</td>
+      <td class="price">130</td>
     </tr>
     <tr>
       <td class="item">Milk</td>
-      <td class="prices">50</td>
+      <td class="price">50</td>
     </tr>
   </table>
 
-  <script>
-    // 1. Get all price elements
-    let priceElements = document.querySelectorAll(".prices");
-    let sum = 0;
+  <!-- Link JavaScript -->
+  <script >
+    let total=document.querySelectorAll(".price")
+    sum=0
+    for(i of total){
+        sum+=Number(i.textContent)
+    }
+    let adding=document.getElementById("newtable")
+    let newadding=document.createElement("tr")
 
-    // 2. Calculate sum
-    priceElements.forEach(el => {
-      sum += Number(el.textContent);
-    });
+    let newadding1=document.createElement("td")
+    newadding1.textContent="total"
+    let newadding2=document.createElement("td")
 
-    // 3. Create new row
-    let table = document.getElementById("groceryTable");
-    let newRow = document.createElement("tr");
-    let newCell = document.createElement("td");
-
-    // 4. Make cell span across 2 columns
-    newCell.setAttribute("colspan", "2");
-    newCell.textContent = "Total Price = ₹" + sum;
-
-    // 5. Append to table
-    newRow.appendChild(newCell);
-    table.appendChild(newRow);
+    newadding2.textContent=sum
+    newadding.appendChild(newadding1)
+    newadding.appendChild(newadding2)
+    adding.appendChild(newadding)
   </script>
 </body>
 </html>
